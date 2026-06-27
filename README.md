@@ -186,9 +186,9 @@ Computer Engineering Student
 
 Python • Django • AI/ML • Full Stack Development
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/archimparmar
 
-LinkedIn: https://linkedin.com/in/yourlinkedin
+LinkedIn: https://linkedin.com/in/archiparmar
 
 ---
 
