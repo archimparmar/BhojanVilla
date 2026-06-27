@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Table Booking{% endblock %}
+
+{% block content %}
+<div class="form-wrapper">
+    <h2 class="text-center mb-4">Update Table Booking</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-success">Update Booking</button>
+            <a href="{% url 'profile' %}" class="btn btn-danger ml-2">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

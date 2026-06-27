@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<div class="form-wrapper">
+    <h2>{% trans "Sign In" %}</h2>
+    <p>{% blocktrans %}Welcome back to our restaurant! To manage your reservations or update your profile, please log in. If you don't have an account yet, <a class="link" href="{{ signup_url }}">sign up</a> to create one.{% endblocktrans %}</p>
+
+    <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-danger">Sign In</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

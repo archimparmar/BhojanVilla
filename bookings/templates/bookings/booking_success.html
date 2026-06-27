@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Booking Confirmed{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <div class="alert d-inline-block px-5 py-4 shadow-sm" role="alert" style="border-radius: 12px;">
+        <h2 class="mb-3">✅ Booking Successful!</h2>
+        <p class="lead">Thank you for booking with us. Your room reservation has been confirmed. 🛏️</p>
+        <p class="text-muted">We look forward to hosting you. You'll receive an email with the booking details shortly.</p>
+        <a href="{% url 'home' %}" class="btn btn-outline-success mt-3">Return to Home</a>
+        <a href="{% url 'room_list' %}" class="btn btn-outline-primary mt-3 ml-2">View More Rooms</a>
+    </div>
+</div>
+{% endblock %}

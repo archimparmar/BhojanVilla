@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- 🍃 Heritage Section -->
+<section class="history-section text-light text-center d-flex align-items-center justify-content-center" style="background-image: url('{{ history_image.image_url }}'); background-size: cover; background-position: center; height: 60vh; position: relative;">
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.5); z-index: 0;"></div>
+    <div class="history-content position-relative z-1 px-4">
+        <h1 class="display-4 fw-bold">Our Story – BhojanVilla</h1>
+        <p class="lead mb-4">
+            A soulful blend of pure vegetarian cuisine and restful escapes. Discover how BhojanVilla came to life.
+        </p>
+        <div class="container text-start text-white">
+            <p>
+                BhojanVilla began as a humble dream — to craft a sanctuary where people could enjoy authentic Indian vegetarian meals and find peace in elegant, eco-friendly stays.
+            </p>
+            <p>
+                From our roots as a small family-run eatery, we've grown into a destination loved for its traditional flavors, modern comfort, and nature-wrapped hospitality. Our food is a celebration of heritage, and our rooms offer a tranquil retreat from the everyday.
+            </p>
+            <p>
+                At BhojanVilla, we serve more than meals. We serve moments, memories, and mindful experiences.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ✨ Our Philosophy -->
+<section class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 text-center">
+            <h2>🌿 Our Philosophy</h2>
+            <p class="lead">
+                We believe in harmony — between taste and wellness, comfort and consciousness, community and care. Every plate and every pillow at BhojanVilla reflects our dedication to pure living.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- 👥 Meet the Team -->
+<section class="team-members container my-5">
+    <h2 class="text-center">Meet Our BhojanVilla Family</h2>
+    <div class="row">
+        {% for member in team_members %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ member.image_url }}" class="card-img-top" alt="{{ member.name }}">
+                <div class="card-body text-center">
+                    <h4 class="card-title">{{ member.name }}</h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- 💎 Our Core Values -->
+<section class="container my-5">
+    <h2 class="text-center">🌱 Our Core Values</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h4>👨‍🍳 Culinary Integrity</h4>
+            <p>Every meal at BhojanVilla is a tribute to India’s rich vegetarian traditions, served with love and purity.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>🌿 Eco-Wellness</h4>
+            <p>From our locally sourced ingredients to our sustainable rooms, we keep nature close to our heart.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>🤗 Soulful Hospitality</h4>
+            <p>We welcome every guest like family, creating warm, memorable experiences from table to room.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 🖼️ Gallery -->
+<section class="gallery text-light text-center d-flex align-items-center" style="background-size: cover; background-position: center; padding: 2rem;">
+    <div class="container position-relative">
+        <h2 class="mb-4">📸 Glimpses of BhojanVilla</h2>
+        <div class="row">
+            {% for image in gallery_images %}
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item shadow-sm">
+                    <img src="{{ image.image_url }}" class="img-fluid rounded" alt="{{ image.name }}">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- 💖 Promise to Guests -->
+<section class="container my-5">
+    <div class="text-center">
+        <h2>Our Promise to You</h2>
+        <p class="lead">BhojanVilla is your destination for soulful food and serene stays. We promise fresh flavors, mindful hospitality, and joyful memories — every time you walk through our doors.</p>
+    </div>
+</section>
+{% endblock %}

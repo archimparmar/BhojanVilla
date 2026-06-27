@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Available Rooms</h2>
+    <div class="row">
+        {% for room in rooms %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+            <img src="{{ room.image.image_url }}" class="img-fluid" alt="{{ room.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ room.title }}</h5>
+                    <p class="card-text">{{ room.description }}</p>
+                    <p><strong>Type:</strong> {{ room.get_room_type_display }}</p>
+                    <p><strong>₹{{ room.price_per_night }} / night</strong></p>
+                    <a href="{% url 'book_room' %}" class="btn btn-outline-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

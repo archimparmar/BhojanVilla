@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Your Bookings</h1>
+
+    <!-- 🍽️ Table Bookings -->
+    <h3 class="mt-4">🍽️ Table Bookings</h3>
+    {% if table_bookings %}
+        <ul class="list-group mb-4">
+            {% for booking in table_bookings %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>{{ booking.booking_datetime }}</strong> – {{ booking.number_of_guests }} guests – {{ booking.status }}
+                    </div>
+                    <div>
+                        <a href="{% url 'update_booking' booking.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-sm btn-outline-danger">Cancel</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-center">You have no table bookings at the moment.</p>
+    {% endif %}
+
+    <!-- 💼 Room Bookings -->
+    <h3 class="mt-5">💼 Room Bookings</h3>
+    {% if room_bookings %}
+        <ul class="list-group">
+            {% for booking in room_bookings %}
+                <li class="list-group-item">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            {% if booking.room.image and booking.room.image.image %}
+                                <img src="{{ booking.room.image.image.url }}" alt="{{ booking.room.title }}" class="img-thumbnail mr-3" style="width: 100px; height: auto;">
+                            {% endif %}
+                            <div>
+                                <strong>{{ booking.room.title }}</strong> ({{ booking.room.room_type|title }})<br>
+                                <small>Check-in: {{ booking.check_in }} | Check-out: {{ booking.check_out }}</small><br>
+                                <small>Total: ₹{{ booking.room.price_per_night }}</small>
+                            </div>
+                        </div>
+                        <div class="mt-3 mt-md-0">
+                            <a href="{% url 'update_room_booking' booking.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="{% url 'cancel_room_booking' booking.id %}" class="btn btn-sm btn-outline-danger">Cancel</a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-center">You have no room bookings at the moment.</p>
+    {% endif %}
+</div>
+{% endblock %}
